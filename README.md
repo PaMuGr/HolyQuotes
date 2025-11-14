@@ -2,7 +2,7 @@
 
 A beautiful Android app built with Jetpack Compose that displays inspirational Bible verses with swipe gestures and favorites functionality.
 
-![logo.png](app/src/main/java/com/example/quoteapp/assets/images/logo.png)
+<img src="app/src/main/java/com/example/quoteapp/assets/images/logo.png" width="150">
 
 ## :ledger: Index
 
