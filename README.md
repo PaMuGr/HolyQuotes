@@ -11,7 +11,6 @@ A beautiful Android app built with Jetpack Compose that displays inspirational B
 - [About](#beginner-about)
 - [Usage](#zap-usage)
     - [Installation](#electric_plug-installation)
-    - [Commands](#package-commands)
 - [Development](#wrench-development)
     - [Pre-Requisites](#notebook-pre-requisites)
     - [Development Environment](#nut_and_bolt-development-environment)
@@ -20,13 +19,11 @@ A beautiful Android app built with Jetpack Compose that displays inspirational B
     - [Deployment](#rocket-deployment)
 - [Community](#cherry_blossom-community)
     - [Contribution](#fire-contribution)
-    - [Branches](#cactus-branches)
     - [Guideline](#exclamation-guideline)
 - [FAQ](#question-faq)
 - [Resources](#page_facing_up-resources)
 - [Gallery](#camera-gallery)
 - [Credit/Acknowledgment](#star2-creditacknowledgment)
-- [License](#lock-license)
 
 ##  :beginner: About
 **QuoteApp** is a Android application designed to provide daily inspiration through Bible verses. Built with **Jetpack Compose** and **Material Design 3**, it offers a seamless user experience with intuitive swipe gestures, favorites management, and social sharing capabilities.
