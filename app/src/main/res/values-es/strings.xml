@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">HolyQuotes</string>
+    <string name="verses">Versículos</string>
+    <string name="favorites">Favoritos</string>
+    <string name="settings">Ajustes</string>
+    <string name="configuration">Configuración</string>
+    <string name="dark_mode">Modo Oscuro</string>
+    <string name="light_mode">Modo Claro</string>
+    <string name="language">Idioma</string>
+    <string name="english">Inglés</string>
+    <string name="spanish">Español</string>
+    <string name="holy_quotes_by_pamugr">HolyQuotes por PaMuGr</string>
+    <string name="your_favorite_verses">Tus Versículos Favoritos</string>
+    <string name="no_favorites_yet">¡Aún no tienes favoritos!\nVe a la pestaña Versículos y toca el corazón ❤️</string>
+    <string name="remove_from_favorites">Eliminar de favoritos</string>
+    <string name="add_to_favorites">Agregar a favoritos</string>
+    <string name="share_verse">Compartir versículo</string>
+    <string-array name="quotes">
+        <item>"Porque yo sé los planes que tengo para ustedes, declara el Señor, planes de bienestar y no de calamidad, para darles un futuro y una esperanza. - Jeremías 29:11"</item>
+        <item>"Todo lo puedo en Cristo que me fortalece. - Filipenses 4:13"</item>
+        <item>"Confía en el Señor de todo corazón, y no en tu propia inteligencia. - Proverbios 3:5"</item>
+        <item>"El Señor es mi pastor; nada me faltará. - Salmo 23:1"</item>
+        <item>"Esfuérzate y sé valiente. No temas ni desmayes, porque el Señor tu Dios estará contigo dondequiera que vayas. - Josué 1:9"</item>
+    </string-array>
+</resources>

@@ -19,9 +19,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.quoteapp.R
 import com.example.quoteapp.utils.shareQuote
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -51,7 +53,7 @@ fun QuotesScreen(
             ) {
                 Spacer(modifier = Modifier.height(20.dp))
                 Text(
-                    "HolyQuotes de PaMuGr",
+                    stringResource(id = R.string.holy_quotes_by_pamugr),
                     style = MaterialTheme.typography.titleMedium,
                     color = Color(0xFF6a6748),
                     fontWeight = FontWeight.Bold,

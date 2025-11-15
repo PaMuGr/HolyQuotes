@@ -21,8 +21,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.quoteapp.R
 import com.example.quoteapp.ui.theme.CustomOverlay
 import com.example.quoteapp.ui.theme.CustomSurface
 
@@ -78,7 +80,7 @@ fun QuoteCard(
                     ) {
                         Icon(
                             Icons.Default.Favorite,
-                            "Agregar a favoritos",
+                            stringResource(id = R.string.add_to_favorites),
                             tint = if (isFavorite) Color(0xFFae4d4e) else Color(0xFF6a6748),
                             modifier = Modifier.size(32.dp)
                         )
@@ -91,7 +93,7 @@ fun QuoteCard(
                     ) {
                         Icon(
                             Icons.Default.Share,
-                            "Compartir versículo",
+                            stringResource(id = R.string.share_verse),
                             tint = Color(0xFF6a6748),
                             modifier = Modifier.size(32.dp)
                         )

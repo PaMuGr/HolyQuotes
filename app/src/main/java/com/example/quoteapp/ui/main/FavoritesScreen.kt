@@ -24,11 +24,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.quoteapp.R
 
 @Composable
 fun FavoritesScreen(
@@ -60,7 +62,7 @@ fun FavoritesScreen(
             ) {
                 Spacer(modifier = Modifier.height(20.dp)) // Espacio para bajar el texto
                 Text(
-                    "Tus Versículos Favoritos",
+                    stringResource(id = R.string.your_favorite_verses),
                     style = MaterialTheme.typography.titleMedium,
                     color = Color(0xFF6a6748),
                     fontWeight = FontWeight.Bold,
@@ -79,7 +81,7 @@ fun FavoritesScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    "¡Aún no tienes favoritos!\nVe a la pestaña Versículos y toca el corazón ❤️",
+                    stringResource(id = R.string.no_favorites_yet),
                     textAlign = TextAlign.Center,
                     color = Color(0xFF6a6748),
                     style = MaterialTheme.typography.bodyLarge
@@ -149,7 +151,7 @@ fun FavoriteQuoteItem(
                     ) {
                         Icon(
                             Icons.Default.Favorite,
-                            "Eliminar de favoritos",
+                            stringResource(id = R.string.remove_from_favorites),
                             tint = Color(color = 0xFFae4d4e),
                             modifier = Modifier.size(28.dp)
                         )

@@ -9,9 +9,13 @@ import androidx.compose.runtime.setValue
 import com.example.quoteapp.repository.QuoteRepository
 
 @Composable
-fun HelloApp() {
-    val repository = QuoteRepository()
-    val quotes = remember { repository.getAllQuoteTexts() }
+fun HelloApp(
+    isDarkMode: Boolean,
+    language: String,
+    onConfigurationChange: (Boolean, String) -> Unit
+) {
+    val repository = remember(language) { QuoteRepository() }
+    val quotes = remember(language) { repository.getQuotes(language) }
     var favoriteQuotes by remember { mutableStateOf(setOf<String>()) }
     var selectedTabIndex by remember { mutableIntStateOf(0) }
 
@@ -26,6 +30,9 @@ fun HelloApp() {
             } else {
                 favoriteQuotes + quote
             }
-        }
+        },
+        isDarkMode = isDarkMode,
+        language = language,
+        onConfigurationChange = onConfigurationChange
     )
 }

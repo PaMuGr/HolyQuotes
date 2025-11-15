@@ -17,9 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.quoteapp.R
 import com.example.quoteapp.ui.theme.CustomBackground
 import com.example.quoteapp.ui.theme.CustomPrimary
 
@@ -29,7 +31,10 @@ fun AppLayout(
     onTabSelected: (Int) -> Unit,
     quotes: List<String>,
     favoriteQuotes: Set<String>,
-    onFavoriteToggle: (String) -> Unit
+    onFavoriteToggle: (String) -> Unit,
+    isDarkMode: Boolean,
+    language: String,
+    onConfigurationChange: (Boolean, String) -> Unit
 ) {
     Surface(
         color = Color.Transparent,
@@ -56,6 +61,7 @@ fun AppLayout(
                         favoriteQuotes = favoriteQuotes,
                         onFavoriteToggle = onFavoriteToggle
                     )
+                    2 -> ConfigurationScreen(isDarkMode, language, onConfigurationChange)
                 }
             }
 
@@ -73,7 +79,7 @@ fun CustomBottomNavigation(
     selectedTabIndex: Int,
     onTabSelected: (Int) -> Unit
 ) {
-    val tabs = listOf("Versículos", "Favoritos")
+    val tabs = listOf(stringResource(id = R.string.verses), stringResource(id = R.string.favorites), stringResource(id = R.string.settings))
 
     Column(
         modifier = Modifier
@@ -90,12 +96,13 @@ fun CustomBottomNavigation(
             Box(
                 modifier = Modifier
                     .height(3.dp)
-                    .fillMaxWidth(0.5f) // 50% width for each tab
+                    .fillMaxWidth(1f / tabs.size) // Divide the width by the number of tabs
                     .background(CustomPrimary)
                     .align(
                         when (selectedTabIndex) {
                             0 -> Alignment.TopStart
-                            1 -> Alignment.TopEnd
+                            1 -> Alignment.TopCenter
+                            2 -> Alignment.TopEnd
                             else -> Alignment.TopStart
                         }
                     )
