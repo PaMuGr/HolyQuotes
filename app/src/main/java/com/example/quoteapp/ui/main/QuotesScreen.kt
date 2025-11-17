@@ -17,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -38,13 +37,13 @@ fun QuotesScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xffc2b294))
+            .background(MaterialTheme.colorScheme.background)
     ) {
-        // Header HolyQuotes by PaMuGr - texto más abajo
+        // Header HolyQuotes by PaMuGr
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xFFf3dfc1))
+                .background(MaterialTheme.colorScheme.surface)
                 .padding(16.dp),
             contentAlignment = Alignment.Center
         ) {
@@ -55,7 +54,7 @@ fun QuotesScreen(
                 Text(
                     stringResource(id = R.string.holy_quotes_by_pamugr),
                     style = MaterialTheme.typography.titleMedium,
-                    color = Color(0xFF6a6748),
+                    color = MaterialTheme.colorScheme.onSurface,
                     fontWeight = FontWeight.Bold,
                     fontSize = 18.sp
                 )
@@ -64,7 +63,6 @@ fun QuotesScreen(
 
         val pagerState = rememberPagerState(pageCount = { quotes.size })
 
-        // LazyColumn mejorado para efecto tipo Reels
         VerticalPager(
             state = pagerState,
             modifier = Modifier
@@ -72,14 +70,12 @@ fun QuotesScreen(
                 .fillMaxWidth()
         ) { page ->
             val quote = quotes[page]
-            // Container que fuerza el tamaño de pantalla completa
             Box(
                 modifier = Modifier
-                    .fillMaxSize() // Esto hace que cada item ocupe el viewport completo
-                    .background(Color(0xffc2b294)),
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background),
                 contentAlignment = Alignment.Center
             ) {
-                // Contenido centrado verticalmente
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()

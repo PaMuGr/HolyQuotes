@@ -23,7 +23,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -31,6 +30,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.quoteapp.R
+import com.example.quoteapp.ui.theme.FavoriteRed
 
 @Composable
 fun FavoritesScreen(
@@ -40,38 +40,31 @@ fun FavoritesScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xffc2b294))
+            .background(MaterialTheme.colorScheme.background)
     ) {
-        // Espacio arriba para bajar el header
+        // Header
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xffc2b294))
-        )
-
-        // Header con color de las cartas - más pequeño
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color(0xFFf3dfc1))
-                .padding(16.dp), // Padding normal
+                .background(MaterialTheme.colorScheme.surface)
+                .padding(16.dp),
             contentAlignment = Alignment.Center
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(20.dp)) // Espacio para bajar el texto
+                Spacer(modifier = Modifier.height(20.dp))
                 Text(
                     stringResource(id = R.string.your_favorite_verses),
                     style = MaterialTheme.typography.titleMedium,
-                    color = Color(0xFF6a6748),
+                    color = MaterialTheme.colorScheme.onSurface,
                     fontWeight = FontWeight.Bold,
                     fontSize = 18.sp
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp)) // Menos espacio después del header
+        Spacer(modifier = Modifier.height(16.dp))
 
         if (favoriteQuotes.isEmpty()) {
             Box(
@@ -83,7 +76,7 @@ fun FavoritesScreen(
                 Text(
                     stringResource(id = R.string.no_favorites_yet),
                     textAlign = TextAlign.Center,
-                    color = Color(0xFF6a6748),
+                    color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
@@ -102,6 +95,7 @@ fun FavoritesScreen(
         }
     }
 }
+
 @Composable
 fun FavoriteQuoteItem(
     quote: String,
@@ -112,12 +106,12 @@ fun FavoriteQuoteItem(
         modifier = Modifier
             .fillMaxWidth()
             .height(140.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFf3dfc1))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Box(
             modifier = Modifier.fillMaxSize()
         ) {
-            // Contenido del versículo
+            // Verse content
             Text(
                 text = quote,
                 modifier = Modifier
@@ -125,17 +119,17 @@ fun FavoriteQuoteItem(
                     .padding(bottom = 50.dp)
                     .padding(16.dp),
                 style = MaterialTheme.typography.bodyMedium,
-                color = Color(0xFF6a6748),
+                color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis
             )
 
-            // Overlay de botones
+            // Button overlay
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp)
-                    .background(Color(0xFFe0c9a6))
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
                     .align(Alignment.BottomCenter)
             ) {
                 Row(
@@ -152,7 +146,7 @@ fun FavoriteQuoteItem(
                         Icon(
                             Icons.Default.Favorite,
                             stringResource(id = R.string.remove_from_favorites),
-                            tint = Color(color = 0xFFae4d4e),
+                            tint = FavoriteRed,
                             modifier = Modifier.size(28.dp)
                         )
                     }

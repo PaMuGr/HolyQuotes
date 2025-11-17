@@ -1,7 +1,7 @@
 package com.example.quoteapp.utils
 
 object Constants {
-    const val APP_NAME = "QuoteApp"
+    const val APP_NAME = "HolyQuotes"
     const val SHARED_PREFS_NAME = "quote_app_prefs"
     const val FAVORITES_KEY = "favorite_quotes"
 

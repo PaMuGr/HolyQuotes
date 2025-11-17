@@ -15,11 +15,9 @@
     <string name="remove_from_favorites">Eliminar de favoritos</string>
     <string name="add_to_favorites">Agregar a favoritos</string>
     <string name="share_verse">Compartir versículo</string>
-    <string-array name="quotes">
-        <item>"Porque yo sé los planes que tengo para ustedes, declara el Señor, planes de bienestar y no de calamidad, para darles un futuro y una esperanza. - Jeremías 29:11"</item>
-        <item>"Todo lo puedo en Cristo que me fortalece. - Filipenses 4:13"</item>
-        <item>"Confía en el Señor de todo corazón, y no en tu propia inteligencia. - Proverbios 3:5"</item>
-        <item>"El Señor es mi pastor; nada me faltará. - Salmo 23:1"</item>
-        <item>"Esfuérzate y sé valiente. No temas ni desmayes, porque el Señor tu Dios estará contigo dondequiera que vayas. - Josué 1:9"</item>
-    </string-array>
+    <string name="notifications">Notificaciones</string>
+    <string name="activate_notifications">Activar notificaciones</string>
+    <string name="support">Soporte</string>
+    <string name="help">Ayuda</string>
+    <string name="report_bugs">Reportar Errores</string>
 </resources>

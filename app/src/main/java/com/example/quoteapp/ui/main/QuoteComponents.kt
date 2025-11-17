@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Share
@@ -16,17 +17,16 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.quoteapp.R
-import com.example.quoteapp.ui.theme.CustomOverlay
-import com.example.quoteapp.ui.theme.CustomSurface
+import com.example.quoteapp.ui.theme.FavoriteRed
 
 @Composable
 fun QuoteCard(
@@ -34,17 +34,17 @@ fun QuoteCard(
     isFavorite: Boolean,
     onFavoriteToggle: () -> Unit,
     onShare: () -> Unit,
-    modifier: Modifier = Modifier  // Añade este parámetro
+    modifier: Modifier = Modifier
 ) {
     Card(
         elevation = CardDefaults.cardElevation(8.dp),
-        modifier = modifier,  // Usa el modifier aquí
-        colors = CardDefaults.cardColors(containerColor = CustomSurface)
+        modifier = modifier,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Box(
             modifier = Modifier.fillMaxSize()
         ) {
-            // Contenido principal del versículo
+            // Main verse content
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -54,16 +54,17 @@ fun QuoteCard(
                 Text(
                     text = quote,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(24.dp)
+                    modifier = Modifier.padding(24.dp).widthIn(max = 500.dp),
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
 
-            // Overlay de botones
+            // Button overlay
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(60.dp)
-                    .background(CustomOverlay)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
                     .align(Alignment.BottomCenter)
             ) {
                 Row(
@@ -81,7 +82,7 @@ fun QuoteCard(
                         Icon(
                             Icons.Default.Favorite,
                             stringResource(id = R.string.add_to_favorites),
-                            tint = if (isFavorite) Color(0xFFae4d4e) else Color(0xFF6a6748),
+                            tint = if (isFavorite) FavoriteRed else MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier.size(32.dp)
                         )
                     }
@@ -94,7 +95,7 @@ fun QuoteCard(
                         Icon(
                             Icons.Default.Share,
                             stringResource(id = R.string.share_verse),
-                            tint = Color(0xFF6a6748),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier.size(32.dp)
                         )
                     }

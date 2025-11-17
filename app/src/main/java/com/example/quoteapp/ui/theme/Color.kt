@@ -2,18 +2,23 @@ package com.example.quoteapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Material 3 default colors
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+//Light Theme
+val LightPrimary = Color(0xFF00658E)      //Deep blue for primary elements
+val LightOnPrimary = Color.White
+val LightSurface = Color(0xFFFCFCFF)      //Clean white for cards and headers
+val LightOnSurface = Color(0xFF191C1E)      //Dark texts
+val LightOnSurfaceVariant = Color(0xFF49454F)  //For secondary texts
+val LightBackground = Color(0xFFF4F6F8)    //Light grey for background
+val LightOnBackground = Color(0xFF191C1E)    //Background text
+val LightOverlay = Color(0xFFD0E4F0)      //Very light blue overlays
+val FavoriteRed = Color(0xFFB3261E)      //Strong red
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
-
-// Your custom colors
-val CustomPrimary = Color(0xFFae4d4e)
-val CustomSurface = Color(0xFFf3dfc1)
-val CustomOverlay = Color(0xFFe0c9a6)
-val CustomBackground = Color(0xffc2b294)
-val CustomTextColor = Color(0xFF6a6748)
+//Dark Theme
+val DarkPrimary = Color(0xFF9ACBEE)       //Lighter blue
+val DarkOnPrimary = Color(0xFF00344B)
+val DarkSurface = Color(0xFF1B1B1F)      //Near black for surfaces
+val DarkOnSurface = Color(0xFFE3E2E6)      //Light texts
+val DarkOnSurfaceVariant = Color(0xFFCAC4CF)   //Secondary texts
+val DarkBackground = Color(0xFF121316)    //Very dark background
+val DarkOnBackground = Color(0xFFE3E2E6)    //Light text on background
+val DarkOverlay = Color(0xFF3F484D)         //Grey for overlays

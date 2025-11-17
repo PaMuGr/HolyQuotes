@@ -6,9 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.quoteapp"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36 // <-- Aquí està la correcció
 
     defaultConfig {
         applicationId = "com.example.quoteapp"
