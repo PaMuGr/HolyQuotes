@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -47,13 +48,15 @@ fun FavoritesScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(MaterialTheme.colorScheme.surface)
-                .padding(16.dp),
+                .padding(horizontal = 16.dp), // <-- CANVIAT
             contentAlignment = Alignment.Center
         ) {
             Column(
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(vertical = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(20.dp))
                 Text(
                     stringResource(id = R.string.your_favorite_verses),
                     style = MaterialTheme.typography.titleMedium,
@@ -96,6 +99,7 @@ fun FavoritesScreen(
     }
 }
 
+// FavoriteQuoteItem
 @Composable
 fun FavoriteQuoteItem(
     quote: String,

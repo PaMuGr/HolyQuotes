@@ -13,8 +13,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
-import com.example.quoteapp.data.QuotesDataEn // <-- AFEGEIX AQUEST IMPORT
-import com.example.quoteapp.data.QuotesDataEs // <-- AFEGEIX AQUEST IMPORT
+import com.example.quoteapp.data.QuotesDataEn
+import com.example.quoteapp.data.QuotesDataEs
 import com.example.quoteapp.ui.theme.QuoteAppTheme
 import java.util.Locale
 
@@ -24,28 +24,24 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             var isDarkMode by remember { mutableStateOf(false) }
-            var language by remember { mutableStateOf("es") } // Comença en espanyol
+            var language by remember { mutableStateOf("es") } // Spanish by Default
             var selectedTabIndex by remember { mutableStateOf(0) }
             var favoriteQuotes by remember { mutableStateOf(setOf<String>()) }
 
-            // --- CANVI AQUÍ ---
-            // Carrega les 'quotes' correctes depenent de l'idioma seleccionat.
-            // Es tornarà a executar automàticament quan 'language' canviï.
             val quotes = remember(language) {
                 when (language) {
                     "en" -> QuotesDataEn.quotes
                     "es" -> QuotesDataEs.quotes
-                    else -> QuotesDataEs.quotes // Per defecte
+                    else -> QuotesDataEs.quotes // Default option
                 }
             }
-            // --- FI DEL CANVI ---
 
             LocalizationWrapper(language = language) {
                 QuoteAppTheme(darkTheme = isDarkMode) {
                     MainScreen(
                         selectedTabIndex = selectedTabIndex,
                         onTabSelected = { selectedTabIndex = it },
-                        quotes = quotes, // Passa la llista de 'quotes' dinàmica
+                        quotes = quotes,
                         favoriteQuotes = favoriteQuotes,
                         onFavoriteToggle = { quote ->
                             favoriteQuotes = if (quote in favoriteQuotes) {
@@ -59,9 +55,6 @@ class MainActivity : ComponentActivity() {
                         onConfigurationChange = { newIsDarkMode, newLanguage ->
                             isDarkMode = newIsDarkMode
                             language = newLanguage
-                        },
-                        onNavigateToLanguage = {
-                            // Ja no es fa servir, però el deixem
                         }
                     )
                 }

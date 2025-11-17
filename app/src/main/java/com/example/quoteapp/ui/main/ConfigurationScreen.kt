@@ -12,10 +12,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -27,7 +26,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.quoteapp.R
-import java.util.Locale
 
 @Composable
 fun ConfigurationScreen(
@@ -40,18 +38,20 @@ fun ConfigurationScreen(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Header (sense canvis)
+        // Header
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(MaterialTheme.colorScheme.surface)
-                .padding(16.dp),
+                .padding(horizontal = 16.dp),
             contentAlignment = Alignment.Center
         ) {
             Column(
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(vertical = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(20.dp))
                 Text(
                     stringResource(id = R.string.configuration),
                     style = MaterialTheme.typography.titleMedium,
@@ -70,7 +70,7 @@ fun ConfigurationScreen(
         ) {
             // Language and Theme Section
             SettingsGroup(title = stringResource(R.string.settings)) {
-                // Dark/Light Mode (sense canvis)
+                // Dark/Light Mode
                 SettingsRow(label = if (isDarkMode) stringResource(id = R.string.dark_mode) else stringResource(id = R.string.light_mode)) {
                     Switch(
                         checked = isDarkMode,
@@ -78,9 +78,7 @@ fun ConfigurationScreen(
                     )
                 }
 
-                // --- SECCIÓ D'IDIOMA MODIFICADA ---
-
-                // Títol per a la secció d'idioma
+                // Title for the language section
                 Text(
                     text = stringResource(id = R.string.language),
                     style = MaterialTheme.typography.bodyLarge,
@@ -89,11 +87,11 @@ fun ConfigurationScreen(
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 
-                // Botó/Fila per Espanyol
+                // Button/Row for Spanish
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { onConfigurationChange(isDarkMode, "es") } // Canvia a 'es'
+                        .clickable { onConfigurationChange(isDarkMode, "es") }
                         .padding(vertical = 12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -105,11 +103,11 @@ fun ConfigurationScreen(
                     )
                 }
 
-                // Botó/Fila per Anglès
+                // Button/Row for English
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { onConfigurationChange(isDarkMode, "en") } // Canvia a 'en'
+                        .clickable { onConfigurationChange(isDarkMode, "en") }
                         .padding(vertical = 12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -120,12 +118,11 @@ fun ConfigurationScreen(
                         style = MaterialTheme.typography.bodyLarge
                     )
                 }
-                // --- FI DE LA SECCIÓ MODIFICADA ---
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Notifications Section (sense canvis)
+            // Notifications Section
             SettingsGroup(title = stringResource(id = R.string.notifications)) {
                 SettingsRow(label = stringResource(id = R.string.activate_notifications)) {
                     Switch(checked = false, onCheckedChange = {})
@@ -134,7 +131,7 @@ fun ConfigurationScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Support Section (sense canvis)
+            // Support Section
             SettingsGroup(title = stringResource(id = R.string.support)) {
                 SettingsRow(label = stringResource(id = R.string.help)) { }
                 SettingsRow(label = stringResource(id = R.string.report_bugs)) { }
@@ -143,7 +140,7 @@ fun ConfigurationScreen(
     }
 }
 
-// SettingsGroup (sense canvis)
+// SettingsGroup
 @Composable
 fun SettingsGroup(title: String, content: @Composable ColumnScope.() -> Unit) {
     Card(
@@ -164,7 +161,7 @@ fun SettingsGroup(title: String, content: @Composable ColumnScope.() -> Unit) {
     }
 }
 
-// SettingsRow (sense canvis)
+// SettingsRow
 @Composable
 fun SettingsRow(label: String, content: @Composable () -> Unit) {
     Row(

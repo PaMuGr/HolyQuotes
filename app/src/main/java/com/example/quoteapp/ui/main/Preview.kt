@@ -24,7 +24,6 @@ fun DefaultPreview() {
             isDarkMode = false,
             language = "es",
             onConfigurationChange = { _, _ -> },
-            onNavigateToLanguage = {}
         )
     }
 }
@@ -42,7 +41,6 @@ fun DarkModePreview() {
             isDarkMode = true,
             language = "es",
             onConfigurationChange = { _, _ -> },
-            onNavigateToLanguage = {}
         )
     }
 }
@@ -60,7 +58,6 @@ fun FavoritesPreview() {
             isDarkMode = false,
             language = "es",
             onConfigurationChange = { _, _ -> },
-            onNavigateToLanguage = {}
         )
     }
 }
@@ -78,7 +75,6 @@ fun SettingsPreview() {
             isDarkMode = false,
             language = "es",
             onConfigurationChange = { _, _ -> },
-            onNavigateToLanguage = {}
         )
     }
 }
