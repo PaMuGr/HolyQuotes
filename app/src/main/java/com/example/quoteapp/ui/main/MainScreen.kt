@@ -52,8 +52,7 @@ fun MainScreen(
                 2 -> ConfigurationScreen(
                     isDarkMode,
                     language,
-                    onConfigurationChange,
-                    onNavigateToLanguage
+                    onConfigurationChange
                 )
             }
         }

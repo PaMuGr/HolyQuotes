@@ -75,20 +75,21 @@ QuoteApp/
 │   ├── src/main/
 │   │   ├── java/com/example/quoteapp/
 │   │   │   ├── data/              # Data sources and static data
-│   │   │   │   └── QuotesData.kt
+│   │   │   │   └── QuotesDataEn.kt
+│   │   │   │   └── QuotesDataEs.kt
 │   │   │   ├── model/             # Data models
 │   │   │   │   └── Quote.kt
 │   │   │   ├── repository/        # Data handling logic
 │   │   │   │   └── QuoteRepository.kt
 │   │   │   ├── ui/               # UI components
 │   │   │   │   ├── main/         # Main screen components
-│   │   │   │   │   ├── MainActivity.kt
-│   │   │   │   │   ├── HelloApp.kt
-│   │   │   │   │   ├── AppLayout.kt
-│   │   │   │   │   ├── QuotesScreen.kt
+│   │   │   │   │   ├── ConfigurationScreen.kt
 │   │   │   │   │   ├── FavoritesScreen.kt
-│   │   │   │   │   ├── QuoteComponents.kt
-│   │   │   │   │   └── Preview.kt
+│   │   │   │   │   ├── MainActivity.kt
+│   │   │   │   │   ├── MainScreen.kt
+│   │   │   │   │   ├── Preview.kt
+│   │   │   │   │   ├── QuotesComponents.kt
+│   │   │   │   │   └── QuotesScreen.kt.kt
 │   │   │   │   └── theme/        # Theme and styling
 │   │   │   │       ├── Color.kt
 │   │   │   │       ├── Theme.kt
