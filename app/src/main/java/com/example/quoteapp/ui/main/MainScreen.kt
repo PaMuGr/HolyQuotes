@@ -48,7 +48,7 @@ fun MainScreen(
             .fillMaxSize()
             .padding(padding)) {
             when (selectedTabIndex) {
-                0 -> QuotesScreen(quotes, favoriteQuotes, onFavoriteToggle)
+                0 -> QuotesScreen(quotes, favoriteQuotes, onFavoriteToggle, language)
                 1 -> FavoritesScreen(favoriteQuotes, onFavoriteToggle)
                 2 -> ConfigurationScreen(
                     isDarkMode,

@@ -30,7 +30,8 @@ import com.example.quoteapp.utils.shareQuote
 fun QuotesScreen(
     quotes: List<String>,
     favoriteQuotes: Set<String>,
-    onFavoriteToggle: (String) -> Unit
+    onFavoriteToggle: (String) -> Unit,
+    language: String
 ) {
     val context = LocalContext.current
 
@@ -89,7 +90,7 @@ fun QuotesScreen(
                         quote = quote,
                         isFavorite = quote in favoriteQuotes,
                         onFavoriteToggle = { onFavoriteToggle(quote) },
-                        onShare = { shareQuote(context, quote) },
+                        onShare = { shareQuote(context, quote, language) },
                         modifier = Modifier
                             .fillMaxWidth(0.9f)
                             .height(400.dp)
