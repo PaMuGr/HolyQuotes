@@ -10,6 +10,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -23,33 +24,36 @@ import kotlinx.coroutines.launch
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
-    //Initialize SettingsRepository
     private lateinit var settingsRepository: SettingsRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        settingsRepository = SettingsRepository(applicationContext) // Initialize here
+        settingsRepository = SettingsRepository(applicationContext)
 
         enableEdgeToEdge()
         setContent {
             val repo = remember { settingsRepository }
             val scope = rememberCoroutineScope()
+
             val isDarkMode by repo.isDarkModeFlow.collectAsState(initial = false)
             val language by repo.languageFlow.collectAsState(initial = "es")
             val favoriteQuotes by repo.favoriteQuotesFlow.collectAsState(initial = setOf())
-            var selectedTabIndex by remember { mutableIntStateOf(0) } //No change needed for tab index
 
-            val quotes = remember(language) {
-                when (language) {
+            var selectedTabIndex by remember { mutableIntStateOf(0) }
+
+            //Randomize quotes when changing language or reinitializing the app
+            var quotes by remember(language) {
+                val initialQuotes = when (language) {
                     "en" -> QuotesDataEn.quotes
                     "es" -> QuotesDataEs.quotes
                     else -> QuotesDataEs.quotes
                 }
+                mutableStateOf(initialQuotes.shuffled())
             }
 
-            //For saving the data
+            //To keep the change
             val onFavoriteToggle: (String) -> Unit = { quote ->
-                scope.launch { //Save to datastore
+                scope.launch {
                     val newFavorites = if (quote in favoriteQuotes) {
                         favoriteQuotes - quote
                     } else {
@@ -60,7 +64,7 @@ class MainActivity : ComponentActivity() {
             }
 
             val onConfigurationChange: (Boolean, String) -> Unit = { newIsDarkMode, newLanguage ->
-                scope.launch { //Save to datastore
+                scope.launch {
                     repo.saveDarkModePreference(newIsDarkMode)
                     repo.saveLanguagePreference(newLanguage)
                 }
