@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -66,6 +67,7 @@ fun QuotesScreen(
 
         val pagerState = rememberPagerState(pageCount = { quotes.size })
 
+        // Quote Cards
         VerticalPager(
             state = pagerState,
             modifier = Modifier
@@ -77,15 +79,16 @@ fun QuotesScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(MaterialTheme.colorScheme.background),
-                contentAlignment = Alignment.Center
             ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
+                    verticalArrangement = Arrangement.Bottom
                 ) {
+                    Spacer(modifier = Modifier.height(80.dp))
+
                     QuoteCard(
                         quote = quote,
                         isFavorite = quote in favoriteQuotes,

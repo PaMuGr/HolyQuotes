@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
 
             var selectedTabIndex by remember { mutableIntStateOf(0) }
 
-            //Randomize quotes when changing language or reinitializing the app
+            // Randomize quotes when changing language or reinitializing the app
             var quotes by remember(language) {
                 val initialQuotes = when (language) {
                     "en" -> QuotesDataEn.quotes
@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
                 mutableStateOf(initialQuotes.shuffled())
             }
 
-            //To keep the change
+            // To keep the change
             val onFavoriteToggle: (String) -> Unit = { quote ->
                 scope.launch {
                     val newFavorites = if (quote in favoriteQuotes) {
